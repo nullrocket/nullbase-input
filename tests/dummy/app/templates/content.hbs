@@ -1,0 +1,57 @@
+{{#nb-scroll-panel
+scrollingX=false
+scrollingY= true
+animating=true
+bouncing  = true
+locking = false
+
+}}
+    <div class="content-wrapper elevation-1dp" style="margin:24px;background:white;padding:24px;">
+        <h2>Examples</h2>
+      <h3>Single Line Inputs</h3>
+        <div style="width:350px;">
+            <div style="margin-bottom:8px;">
+              {{nb-input  type="text" icon=(build-icon "account" "grey") hint="joe bobs hint" label="User ID" copyButton=true}}
+            </div>
+            <div style="margin-bottom:8px;">
+              {{nb-input  type="password" icon=(build-icon "key" "grey") hint="joe bobs hint" label="Password" error="this is a long error that will probably wrap around and be on several lines what happens when that happens?"}}
+            </div>
+            <div style="margin-bottom:8px;">
+              {{#nb-input  type="text" icon=(build-icon "phone" "blue") hint="A very long hint text that should wrap around and make two lines." error=appState.errorArray }}
+                {{nb-button text="show/hide" type="flat-icon" icon=(build-icon "content-copy" "grey")  on-tap=(route-action "toggleLeftSidebar") size="condensed"  }}
+
+              {{/nb-input}}
+
+            </div>
+            <div style="margin-bottom:8px;">
+              {{nb-input  type="text" hint="This field doesn't have an icon" label="No Icon" }}
+
+            </div>
+
+            <div style="margin-bottom:8px;">
+              {{nb-input  type="text" hint="This field doesn't have an icon" label="No Icon" error="a big fat error" showErrors=true}}
+
+            </div>
+
+            <div style="margin-bottom:8px;">
+              {{nb-input  type="memo" icon=(build-icon "comment" "green") hint="joe bobs hint" }}
+            </div>
+            <div style="margin-bottom:8px;">
+              {{nb-input  type="memo" icon=(build-icon "comment" "green") hint="joe bobs hint"
+              focused-underline-color="blue"
+              underline-color="blue"
+
+              focused-label-color="blue"
+              label-color="blue"
+              error-label-color="blue"
+              focused-error-label-color="blue"
+              text-color="blue"
+              error-text-color="blue"
+              hint-text-color="blue"
+              }}
+            </div>
+        </div>
+    </div>
+
+{{/nb-scroll-panel}}
+

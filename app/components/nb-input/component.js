@@ -1,0 +1,1 @@
+export { default } from 'nullbase-input/components/nb-input/component';
