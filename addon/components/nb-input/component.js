@@ -174,7 +174,7 @@ export default Ember.Component.extend(ThemedComponent, {
     this._super(...arguments);
     let gestures = this.get('gestures');
     $('input,textarea', self.get('element')).on('blur', function () {
-      Ember.run(function () {
+      Ember.run(this,function () {
         self.set('focusedDescriptionProperty', "");
         self.set('focused', false);
         $('.bottom-bar', self.get('element')).removeClass('focused');
