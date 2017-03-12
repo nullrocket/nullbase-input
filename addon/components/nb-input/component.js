@@ -90,17 +90,24 @@ export default Ember.Component.extend(ThemedComponent, {
 
       e.preventDefault();
       e.stopPropagation();
-      let $inputElement = $('input', this.get('element'));
-      if ( $('input', this.get('element')).prop('type') === 'text' ) {
+      if ( !this.get('type') === "memo" ) {
+        let $inputElement = $('input', this.get('element'));
+        if ( $('input', this.get('element')).prop('type') === 'text' ) {
 
+        }
+        else {
+
+          $inputElement.prop('type', 'text');
+
+        }
+        $('#copyNode').text($inputElement.val());
       }
-      else {
-
-        $inputElement.prop('type', 'text');
-
+      else
+      {
+        $('#copyNode').text(this.get('value'));
       }
 
-      $('#copyNode').text($inputElement.val());
+
 
 
       // "Optional" Select some text
