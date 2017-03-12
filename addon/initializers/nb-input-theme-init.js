@@ -229,7 +229,7 @@ var ThemeHandler = Ember.Object.extend(ThemeHandlerMixin, {
 
 
 export function initialize( application ) {
-  console.log('Initializing nb-input-theme-init');
+
   application.register('nb-input-theme-init:main', ThemeHandler, { instantiate: true });
   application.inject('component:nb-input', '_themeHandler', 'nb-input-theme-init:main');
 }
