@@ -26,7 +26,7 @@
             {{/if}}
               {{yield}}
                 {{#if copyButton }}
-                    {{nb-button title=passwordToggleTitle type="flat-icon" icon= (build-icon "content-copy" "grey") on-tap=(action "copyField")  size="condensed" useNativeClick=true  }}
+                    {{nb-button title=passwordToggleTitle type="flat-icon" icon= (build-icon "content-copy" "grey") on-tap=(action "copyField") title="Copy to clipboard" size="condensed" useNativeClick=true  }}
 
                 {{/if}}
             </div>
