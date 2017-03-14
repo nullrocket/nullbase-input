@@ -21,7 +21,7 @@
             </div>
             <div class="buttons">
             {{#if (eq type "password") }}
-              {{nb-button title=passwordToggleTitle type="flat-icon" icon=(if passwordVisible (build-icon "eye-off" "grey") (build-icon "eye" "grey")) on-tap=(action "togglePasswordVisible")  size="condensed"  }}
+              {{nb-button title=passwordToggleTitle type="flat-icon" icon=(if passwordVisible (build-icon "eye-off" "grey") (build-icon "eye" "grey")) on-tap=(action "togglePasswordVisible") title="Toggle masked"  size="condensed"  }}
 
             {{/if}}
               {{yield}}
