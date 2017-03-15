@@ -24,7 +24,7 @@ var uniqID = {
 export default Ember.Component.extend(ThemedComponent, {
   gestures: Ember.inject.service(),
   layout: layout,
-
+  autocomplete:"off",
   _themeProperties: [
     'attrs.focused-underline-color',
     'attrs.underline-color',
