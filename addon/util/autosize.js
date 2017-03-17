@@ -171,7 +171,7 @@ function assign(ta) {
 		}
 	};
 
-	const destroy = style => {
+	const destroy = function(style)  {
 		window.removeEventListener('resize', pageResize, false);
 		ta.removeEventListener('input', update, false);
 		ta.removeEventListener('keyup', update, false);
