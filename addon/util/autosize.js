@@ -183,7 +183,8 @@ function assign(ta) {
 		});
 
 		map.delete(ta);
-	}.bind(ta, {
+	}
+	destroy.bind(ta, {
 		height: ta.style.height,
 		resize: ta.style.resize,
 		overflowY: ta.style.overflowY,
