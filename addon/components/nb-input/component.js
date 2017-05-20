@@ -75,7 +75,9 @@ export default Ember.Component.extend(ThemedComponent, {
 
     setTimeout(() =>{
       if ( this.get('type') === 'memo' ) {
-        this.$('textarea').trigger('inview');
+        if(!this.get('tearDown')) {
+          this.$('textarea').trigger('inview');
+        }
 
       }
     },10)
@@ -164,9 +166,10 @@ export default Ember.Component.extend(ThemedComponent, {
     var used = (this.get('value') || (this.get('isMemo') && this.get('readonly'))) ? ' used' : '';
     return this.get('inputClass') + used;
   }),
-
+  tearDown:'false',
 
   willDestroyElement: function () {
+    this.set('tearDown',true);
     this._super(...arguments);
     let gestures = this.get('gestures');
     let icon = this.$('.icon').get(0);
