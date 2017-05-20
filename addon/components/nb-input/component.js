@@ -24,7 +24,7 @@ var uniqID = {
 export default Ember.Component.extend(ThemedComponent, {
   gestures: Ember.inject.service(),
   layout: layout,
-  autocomplete:"off",
+  autocomplete: "off",
   _themeProperties: [
     'attrs.focused-underline-color',
     'attrs.underline-color',
@@ -102,12 +102,9 @@ export default Ember.Component.extend(ThemedComponent, {
         }
         $('#copyNode').text($inputElement.val());
       }
-      else
-      {
+      else {
         $('#copyNode').text(this.get('value'));
       }
-
-
 
 
       // "Optional" Select some text
@@ -159,9 +156,11 @@ export default Ember.Component.extend(ThemedComponent, {
     return this.get('inputClass') + used;
   }),
   autoSizeObserver: Ember.observer('value', function () {
-    if ( this.get('type') === 'memo' ) {
-      autosize.update(this.$('textarea'));
-    }
+    Ember.run(() => {
+      if ( this.get('type') === 'memo' ) {
+        autosize.update(this.$('textarea'));
+      }
+    });
   }),
 
   willDestroyElement: function () {
@@ -181,7 +180,7 @@ export default Ember.Component.extend(ThemedComponent, {
     this._super(...arguments);
     let gestures = this.get('gestures');
     $('input,textarea', self.get('element')).on('blur', function () {
-      Ember.run(this,function () {
+      Ember.run(this, function () {
         self.set('focusedDescriptionProperty', "");
         self.set('focused', false);
         $('.bottom-bar', self.get('element')).removeClass('focused');
