@@ -166,15 +166,20 @@ export default Ember.Component.extend(ThemedComponent, {
     var used = (this.get('value') || (this.get('isMemo') && this.get('readonly'))) ? ' used' : '';
     return this.get('inputClass') + used;
   }),
-  tearDown:'false',
+
 
   willDestroyElement: function () {
-    this.set('tearDown',true);
+
     this._super(...arguments);
     let gestures = this.get('gestures');
     let icon = this.$('.icon').get(0);
     if ( this.get('type') === 'memo' ) {
-      autosize.destroy(this.$('textarea'));
+      try {
+        autosize.destroy(this.$('textarea'));
+      }
+      catch(e){
+
+      }
 
     }
     if ( icon ) {
@@ -240,6 +245,8 @@ export default Ember.Component.extend(ThemedComponent, {
 
     }
     var inView = function ( /*e,isInView*/ ) {
+
+
       autosize.update(self.$('textarea'));
     };
     self.$('textarea').bind('inview', inView);
