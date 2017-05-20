@@ -155,12 +155,12 @@ export default Ember.Component.extend(ThemedComponent, {
     var used = (this.get('value') || (this.get('isMemo') && this.get('readonly'))) ? ' used' : '';
     return this.get('inputClass') + used;
   }),
-  autoSizeObserver: Ember.observer('value', function () {
-    Ember.run(() => {
+  autoSizeObserver: Ember.computed('value', function () {
+    Ember.run.later(()=>{
       if ( this.get('type') === 'memo' ) {
         autosize.update(this.$('textarea'));
       }
-    });
+    },1);
   }),
 
   willDestroyElement: function () {
