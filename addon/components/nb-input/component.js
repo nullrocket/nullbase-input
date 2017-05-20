@@ -53,7 +53,7 @@ export default Ember.Component.extend(ThemedComponent, {
     }
     return "";
   }),
-
+  value: '',
   showErrors: false,
   monospace: false,
   classNames: [],
@@ -71,7 +71,12 @@ export default Ember.Component.extend(ThemedComponent, {
   }),
   icon: "",
   passwordVisible: false,
+  textAreaChangedObserver: Ember.observer('value', function () {
+    if ( this.get('type') === 'memo' ) {
+      this.$('textarea').trigger('inview');
 
+    }
+  }),
   actions: {
     togglePasswordVisible(){
 
@@ -225,9 +230,7 @@ export default Ember.Component.extend(ThemedComponent, {
     });
     if ( this.get('type') === 'memo' ) {
       autosize(this.$('textarea'));
-      this.$('textarea').on('input propertychange', function() {
-        autosize.update(self.$('textarea'));
-      });
+
     }
     var inView = function ( /*e,isInView*/ ) {
       autosize.update(self.$('textarea'));
