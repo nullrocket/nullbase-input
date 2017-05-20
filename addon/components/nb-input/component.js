@@ -155,13 +155,7 @@ export default Ember.Component.extend(ThemedComponent, {
     var used = (this.get('value') || (this.get('isMemo') && this.get('readonly'))) ? ' used' : '';
     return this.get('inputClass') + used;
   }),
-  autoSizeObserver: Ember.computed('value', function () {
-    Ember.run.later(()=>{
-      if ( this.get('type') === 'memo' ) {
-        autosize.update(this.$('textarea'));
-      }
-    },1);
-  }),
+
 
   willDestroyElement: function () {
     this._super(...arguments);
@@ -169,6 +163,7 @@ export default Ember.Component.extend(ThemedComponent, {
     let icon = this.$('.icon').get(0);
     if ( this.get('type') === 'memo' ) {
       autosize.destroy(this.$('textarea'));
+
     }
     if ( icon ) {
       gestures.removeEventListener(icon, 'down', this._down);
@@ -230,6 +225,9 @@ export default Ember.Component.extend(ThemedComponent, {
     });
     if ( this.get('type') === 'memo' ) {
       autosize(this.$('textarea'));
+      this.$('textarea').on('change',function(){
+        autosize.update(self.$('textarea'));
+      });
     }
     var inView = function ( /*e,isInView*/ ) {
       autosize.update(self.$('textarea'));
