@@ -225,7 +225,7 @@ export default Ember.Component.extend(ThemedComponent, {
     });
     if ( this.get('type') === 'memo' ) {
       autosize(this.$('textarea'));
-      this.$('textarea').on('change',function(){
+      this.$('textarea').on('input propertychange', function() {
         autosize.update(self.$('textarea'));
       });
     }
