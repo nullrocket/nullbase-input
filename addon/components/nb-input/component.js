@@ -72,10 +72,14 @@ export default Ember.Component.extend(ThemedComponent, {
   icon: "",
   passwordVisible: false,
   textAreaChangedObserver: Ember.observer('value', function () {
-    if ( this.get('type') === 'memo' ) {
-      this.$('textarea').trigger('inview');
 
-    }
+    setTimeout(() =>{
+      if ( this.get('type') === 'memo' ) {
+        this.$('textarea').trigger('inview');
+
+      }
+    },10)
+
   }),
   actions: {
     togglePasswordVisible(){
