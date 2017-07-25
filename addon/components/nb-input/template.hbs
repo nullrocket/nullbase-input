@@ -21,12 +21,12 @@
             </div>
             <div class="buttons">
             {{#if (eq type "password") }}
-              {{nb-button title=passwordToggleTitle type="flat-icon" icon=(if passwordVisible (build-icon "eye-off" "grey") (build-icon "eye" "grey")) on-tap=(action "togglePasswordVisible") title="Toggle masked"  size="condensed"  }}
+              {{nb-button title=passwordToggleTitle type="flat-icon" icon=(if passwordVisible (build-icon "eye-off" "grey") (build-icon "eye" "grey")) on-tap=(action "togglePasswordVisible")   size="condensed"  }}
 
             {{/if}}
               {{yield}}
                 {{#if copyButton }}
-                    {{nb-button title=passwordToggleTitle type="flat-icon" icon= (build-icon "content-copy" "grey") on-tap=(action "copyField") title="Copy to clipboard" size="condensed" useNativeClick=true  }}
+                    {{nb-button title=copyFieldTitle type="flat-icon" icon= (build-icon "content-copy" "grey") on-tap=(action "copyField")  size="condensed" useNativeClick=true  }}
 
                 {{/if}}
             </div>

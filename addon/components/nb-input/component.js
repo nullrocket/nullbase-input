@@ -63,6 +63,8 @@ export default Ember.Component.extend(ThemedComponent, {
   description: "",
   focusedDescriptionProperty: "",
   rows: 1,
+  passwordToggleTitle:"Show Masked",
+  copyFieldTitle:"Copy to clipboard",
   hasError: Ember.computed('error', 'showErrors', function () {
     return (this.get('error') && this.get('error').length && this.get('showErrors'));
   }),
