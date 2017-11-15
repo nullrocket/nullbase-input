@@ -56,7 +56,7 @@ export default Ember.Component.extend(ThemedComponent, {
   value: '',
   showErrors: false,
   monospace: false,
-  classNames: [],
+  classNames: ['selectable'],
   classNameBindings: [ 'hasIcon:icon', 'monospace:monospace', 'hasText:has-text:no-text', 'focused:focused:not-focused', 'hasLabel:has-label:no-label', 'hasError:has-error:no-error', 'type' ],
   hasText: Ember.computed.bool('value'),
   hasLabel: Ember.computed.bool('label'),
