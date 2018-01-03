@@ -164,7 +164,7 @@ export default Ember.Component.extend(ThemedComponent, {
 
     }
   },
-  inputClasses: Ember.computed('inputClass', function () {
+  inputClasses: Ember.computed('inputClass','isMemo','readOnly', function () {
     var used = (this.get('value') || (this.get('isMemo') && this.get('readonly'))) ? ' used' : '';
     return this.get('inputClass') + used;
   }),

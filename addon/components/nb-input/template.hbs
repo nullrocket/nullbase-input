@@ -10,11 +10,11 @@
                 <div class="label">{{label}}</div>
               {{#if isMemo}}
 
-                {{textarea type=type value=value  name=inputId class=inputClasses rows=rows spellcheck=false autocomplete="off" readonly=readonly}}
+                {{textarea type=type value=value  name=inputId class=inputClasses rows=rows spellcheck=false autocomplete="new-password" readonly=readonly}}
 
               {{else}}
 
-                {{input type=type value=value  name=inputId class=inputClasses spellcheck=false title=title autocomplete="off" autocapitalize="off" autocorrect="off" readonly=readonly }}
+                {{input type=type value=value  name=inputId class=inputClasses spellcheck=false title=title autocomplete="new-password" autocapitalize="off" autocorrect="off" readonly=readonly }}
 
 
               {{/if}}
